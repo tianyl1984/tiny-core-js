@@ -3,6 +3,9 @@ const webUtil = require('./webUtil');
 
 module.exports = {
     keyToCamel: obj => {
+        if (!obj) {
+            return obj;
+        }
         for (const key of Object.keys(obj)) {
             const newKey = toCamelCase(key);
             if (newKey !== key) {
@@ -13,6 +16,9 @@ module.exports = {
         return obj;
     },
     convertToSnakeCase: str => {
+        if (!str) {
+            return str;
+        }
         return str.replace(/[A-Z]/g, char => {
             return `_${char.toLowerCase()}`;
         });
